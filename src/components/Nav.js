@@ -6,21 +6,24 @@ const Nav = (props) => {
 		<div className="navWrapper">
 			
 			<div className="TwirlyPig"><br/>
-				<a>
-					<img onClick={()=>props.showHogsDet(props.hog)} src={require(`../hog-imgs/${props.hog.name.toLowerCase().replace(/\s/g,'_')}.jpg`)} className="App-logo" alt="piggy" />
-				</a><br/>
+				<ul>
+					<li>Filter Hogs
+						<input type="text" name="search" value={props.searchValue}
+								placeholder="Search Hogs by Name"
+								onChange={(e)=>props.setSearchValue(e)}	
+						/>Greased
+						<input type="checkbox" name="greased" checked={props.greasyWhat} onChange={props.setGreasy}/>
+					</li>
+					<li>Sort Hogs By
+						<select>
+							<option value="name">Name</option>
+							<option value="ratio">Weight Ratio</option>
+						</select>
+					</li>
 
-				<a>Name: {props.hog.name}</a><br/>
-
-				<a>Specialty: {props.hog.specialty}</a><br/>
-
-				<a>Greased: {props.hog.greased ? 'True' : 'False'}</a><br/>
-
+				</ul>
+		
 			</div>
-			{props.singleHog ? "Weight ratio: " : null}
-			{props.singleHog ? props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water'] : null}<br/>
-			{props.singleHog ? <button onClick={()=>props.resetHogs()}>Back</button> : null}
-			{/* <span className="normalText">A React App for County Fair Hog Fans</span> */}
 		</div>
 	)
 }
