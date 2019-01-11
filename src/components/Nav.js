@@ -17,6 +17,8 @@ const Nav = (props) => {
 				<a>Greased: {props.hog.greased ? 'True' : 'False'}</a><br/>
 
 			</div>
+			{props.singleHog ? "Weight ratio: " : null}
+			{props.singleHog ? props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water'] : null}<br/>
 			{props.singleHog ? <button onClick={()=>props.resetHogs()}>Back</button> : null}
 			{/* <span className="normalText">A React App for County Fair Hog Fans</span> */}
 		</div>
